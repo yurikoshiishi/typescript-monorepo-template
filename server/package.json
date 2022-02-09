@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "@prisma/client": "^3.8.1",
+    "dotenv": "^15.0.0",
+    "fastify": "^3.27.1",
+    "fastify-cors": "^6.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.13",
+    "prisma": "^3.8.1",
+    "ts-node-dev": "^1.1.8"
+  },
+  "main": "src/index.ts",
+  "name": "server",
+  "private": true,
+  "scripts": {
+    "build": "prisma generate && tsc",
+    "dev": "prisma generate && ts-node-dev --exit-child --poll ./src/index.ts",
+    "start": "node dist/index.js",
+    "type-check": "tsc --noEmit"
+  },
+  "version": "1.0.0"
+}

@@ -1,0 +1,15 @@
+FROM node:16.13
+
+WORKDIR /usr/src
+
+COPY . .
+
+RUN npm i -g yarn --force
+
+RUN yarn install --frozen-lockfile
+
+ENV NODE_PATH=/usr/src/node_modules
+
+RUN yarn workspace ${WORKSPACE} build
+
+CMD yarn workspace ${WORKSPACE} start
