@@ -10,3 +10,8 @@ A template for a Typescript project using Express, Next.js, Prisma, and PostgreS
 ```
 docker compose up
 ```
+
+## References for future improvements
+
+- https://github.com/alan2207/bulletproof-react
+- https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/
