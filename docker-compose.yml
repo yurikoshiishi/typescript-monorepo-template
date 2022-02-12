@@ -3,7 +3,8 @@ version: "3"
 services:
   db:
     image: postgres:13
-    container_name: db
+    container_name: ${DB_CONTAINER_NAME}
+    hostname: ${DB_CONTAINER_NAME}
     env_file:
       - .env
     restart: unless-stopped
@@ -14,7 +15,8 @@ services:
       - ./db/initdb.d:/docker-entrypoint-initdb.d
 
   server:
-    container_name: server
+    container_name: ${SERVER_CONTAINER_NAME}
+    hostname: ${SERVER_CONTAINER_NAME}
     build:
       context: .
       dockerfile: ./Dockerfile_${DOCKER_ENV}
@@ -36,7 +38,8 @@ services:
       - /usr/src/server/dist
 
   client:
-    container_name: client
+    container_name: ${CLIENT_CONTAINER_NAME}
+    hostname: ${CLIENT_CONTAINER_NAME}
     build:
       context: .
       dockerfile: ./Dockerfile_${DOCKER_ENV}
