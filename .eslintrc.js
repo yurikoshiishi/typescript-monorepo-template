@@ -20,7 +20,7 @@ module.exports = {
     // Specifies next pages directory path: https://github.com/vercel/next.js/discussions/24254
     "@next/next/no-html-link-for-pages": [
       2,
-      path.join(__dirname, "client/pages"),
+      path.join(__dirname, "client/src/pages"),
     ],
     "import/no-duplicates": "error",
     "import/no-unresolved": "error",
