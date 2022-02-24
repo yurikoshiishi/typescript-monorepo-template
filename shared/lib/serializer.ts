@@ -1,4 +1,4 @@
-import { formatISO, isValid, parseISO } from "date-fns";
+import { formatISO, parseISO } from "date-fns";
 
 export function serialize<T>(data: any): T {
   return Object.keys(data).reduce((obj, key) => {
@@ -36,8 +36,13 @@ function serializeDate(date: Date) {
   return formatISO(date);
 }
 
+// NOTE: find faster solution
 function isISODateString(text: string) {
-  return isValid(parseISO(text));
+  try {
+    return text === serializeDate(deserializeDate(text));
+  } catch (error) {
+    return false;
+  }
 }
 
 function deserializeDate(text: string) {
